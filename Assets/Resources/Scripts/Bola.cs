@@ -6,6 +6,7 @@ public class Bola : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     public Vector2 ballSpeed;
+    public Vector2 resetPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +21,10 @@ public class Bola : MonoBehaviour
         //transform.Translate(new Vector3(1f, 1f, 0) * Time.deltaTime);
         //transform.Translate(ballSpeed * Time.deltaTime);
         
+    }
+
+    public void ResetBall()
+    {
+        transform.position = (new Vector2(resetPos.x, resetPos.y));
     }
 }

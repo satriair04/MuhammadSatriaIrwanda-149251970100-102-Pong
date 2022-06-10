@@ -36,5 +36,6 @@ public class Paddle : MonoBehaviour
     {
         //transform.Translate(movement * Time.deltaTime);
         rb2d.velocity = movement;
+        Debug.Log("paddleSpeed: " + paddleSpeed + ". Movement: " + movement + ". Velocity: " + rb2d.velocity);
     }
 }
