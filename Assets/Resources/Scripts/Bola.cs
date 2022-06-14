@@ -27,4 +27,14 @@ public class Bola : MonoBehaviour
     {
         transform.position = (new Vector2(resetPos.x, resetPos.y));
     }
+
+    public void DoubleSpeed()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x * 2, rb2d.velocity.y * 2);
+    }
+
+    public void ActivePUSpeedUp(float magnitude)
+    {
+        rb2d.velocity *= magnitude;
+    } 
 }
