@@ -1,3 +1,8 @@
+Assets/*
+Packages/*
+ProjectSettings/*
+UserSettings/*
+
 Library/* 
 Logs/* 
 Temp/* 
