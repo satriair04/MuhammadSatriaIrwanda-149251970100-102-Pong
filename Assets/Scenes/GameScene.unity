@@ -872,10 +872,9 @@ MonoBehaviour:
   - {fileID: 56929373}
   spawnArea: {fileID: 525365860}
   powerUpAreaMin: {x: -6, y: -3}
-  xAxisBoundary: 2
   powerUpAreaMax: {x: 6, y: 3}
-  spawnInterval: 3
-  selfDestroyInterval: 9
+  spawnInterval: 2
+  selfDestroyInterval: 5
 --- !u!1 &634463945
 GameObject:
   m_ObjectHideFlags: 0
