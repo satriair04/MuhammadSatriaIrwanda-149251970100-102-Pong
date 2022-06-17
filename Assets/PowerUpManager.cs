@@ -28,7 +28,8 @@ public class PowerUpManager : MonoBehaviour
         if (timer < spawnInterval)
         {
             GenerateRandomPowerUp();
-            timer -= spawnInterval;
+            //timer -= spawnInterval;
+            timer = 0;
             //Debug
             Debug.Log("Power up telah muncul");
         }
