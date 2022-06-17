@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public int paddleScoreLeft;
     public int paddleScoreRight;
     public int maxScore;
+   
     void Start()
     {
         
@@ -39,8 +40,17 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+   
+
+
     public void GameOver()
     {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        //Method dibedakan karena mungkin nanti akan ada penambahan fungsi yang berbeda
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -10,18 +10,16 @@ public class PowerUpManager : MonoBehaviour
 
     public Transform spawnArea;
     public Vector2 powerUpAreaMin;
-    public int xAxisBoundary = 1;           //Membatasi agar spawn tidak mepet ditengah; baru ditambahkan
     public Vector2 powerUpAreaMax;
 
     public int spawnInterval = 1;           //Default
     public int selfDestroyInterval = 1;     //Default; baru ditambahkan
     private float timer;
-    private bool leftSpawn;
+    
     private void Start()
     {
         powerUpList = new List<GameObject>();
         timer = 0;
-        leftSpawn = true;
     }
 
     private void Update()
@@ -30,7 +28,8 @@ public class PowerUpManager : MonoBehaviour
         if (timer < spawnInterval)
         {
             GenerateRandomPowerUp();
-            timer -= spawnInterval;
+            //timer -= spawnInterval;
+            timer = 0;
             //Debug
             Debug.Log("Power up telah muncul");
         }
@@ -60,29 +59,12 @@ public class PowerUpManager : MonoBehaviour
         //Perpatokan sumbu x; Modifikasi sumbu x berdasarkan batasan tengah sumbu x
         //Example: Jika xAxisBoundary = 2; maka batas tengah area kiri adalah -2 sedangkan kanan adalah 2
         //Example: Jika xAxisBoundary = 3; maka batas tengah area kiri adalah -3 sedangkan kanan adalah 3
-        if (leftSpawn)
-        {
-            if (position.x > -xAxisBoundary)
-            {
-                position.x = -position.x;   //Ubah ke negatif
-            }
-            position.x = Random.Range(position.x, -xAxisBoundary);  
-        }
-        else
-        {
-            if (position.x < xAxisBoundary)
-            {
-                position.x *= position.x;   //Ubah ke positif jika nilai kecil dari 0
-            }
-            position.x = Random.Range(xAxisBoundary, position.x);  // dari 0 hingga mendekati position.x
-        }
 
         //integer randomIndex sepertinya agar powerup yang muncul bisa bermacam-macam
         int randomIndex = Random.Range(0, powerUpTemplateList.Count);
         GameObject powerUp = Instantiate(powerUpTemplateList[randomIndex], new Vector3(position.x, position.y, powerUpTemplateList[randomIndex].transform.position.z), Quaternion.identity, spawnArea);
         powerUp.SetActive(true);
         powerUpList.Add(powerUp);
-        leftSpawn = !leftSpawn; //Membuat spawn powerUp bergantian ke kanan dan kiri
     }
 
     public void RemovePowerUp(GameObject powerUp)

@@ -12,5 +12,11 @@ public class MainMenuController : MonoBehaviour
     public void OpenAuthor()
     {
         Debug.Log("Game keren oleh Muhammad Satria Irwanda [149251970100-102]");
+        SceneManager.LoadScene("Credit");
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
